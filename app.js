@@ -6,13 +6,10 @@ const mongoose = require('mongoose');
 
 const userRouter = require('./routers/userRouter');
 const path = require('path');
-const fs = require('fs');
-const filePath = path.join(__dirname, 'public', 'userImages', '7563112.jpg');
-console.log('testinggggg');
-console.log(fs.existsSync(filePath)); // Should return true
 
 const app = express();
 
+app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
